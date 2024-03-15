@@ -1,0 +1,45 @@
+{
+  "name": "codebender-ai-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.17.1",
+    "@types/node": "20.5.1",
+    "@types/react": "18.2.20",
+    "@types/react-dom": "18.2.7",
+    "ai": "^2.2.31",
+    "autoprefixer": "10.4.15",
+    "cal-sans": "^1.0.1",
+    "html-react-parser": "^4.2.2",
+    "jspdf": "^2.5.1",
+    "next": "13.4.19",
+    "openai": "^4.24.2",
+    "postcss": "8.4.28",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-markdown": "^9.0.1",
+    "rehype-raw": "^7.0.0",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "@types/eslint": "^8.37.0",
+    "@types/node": "^20.2.5",
+    "@types/prettier": "^2.7.2",
+    "@types/react": "^18.2.6",
+    "@types/react-dom": "^18.2.4",
+    "@typescript-eslint/eslint-plugin": "^5.59.6",
+    "@typescript-eslint/parser": "^5.59.6",
+    "eslint": "^8.40.0",
+    "eslint-config-next": "^13.4.2",
+    "postcss": "^8.4.21",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.2.8",
+    "tailwindcss": "^3.3.0"
+  }
+}
