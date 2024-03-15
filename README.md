@@ -1,12 +1,10 @@
-# Codebender AI Template
+# SuperViral AI
 
-This project is template code you can use to start any of your AI projects.
+This chat app helps you generate viral video ideas, scripts, and thumbnails. You can customize each of these as much as you want until you are satisfied.
 
-It's a chat interface that allows you to talk with the Last Codebender. You can send him text messages by clicking on the text button, or request an AI art image by clicking on the image button.
+This project is built using Nextjs. It utilizes the Claude 3 Opus model for text generation and OpenAI Dall-E 3 for thumbnail generation.
 
-This project is built using Nextjs. It utilizes the OpenAI `gpt-3.5-turbo` model for chat completion, and Dall-E for image generation.
-
-<img src="app-demo.gif" alt="app demo" width=600>
+<img src="superviral-demo.gif" alt="app demo" width=600>
 
 ## Getting Started
 
