@@ -15,7 +15,7 @@
 }
 
 h1 {
-  font-family: 'Cal Sans', sans-serif;
+  font-family: "Cal Sans", sans-serif;
   font-size: 36px;
   margin-bottom: 1rem;
 }
@@ -81,7 +81,6 @@ h1 {
   height: calc(100vh - 100px);
   box-sizing: border-box;
 }
-
 
 .chat {
   display: flex;
@@ -191,6 +190,18 @@ h1 {
   h1 {
     margin: auto;
   }
+
+  .author {
+    position: absolute;
+    right: 20px;
+    font-weight: 300;
+    font-family: monospace;
+
+    a {
+      color: #ffe608;
+      text-decoration: underline;
+    }
+  }
 }
 
 .header .logo {
@@ -234,7 +245,7 @@ h1 {
   padding-right: 2em;
 }
 
-.mainForm input[type='text'] {
+.mainForm input[type="text"] {
   box-sizing: border-box;
   margin: auto;
   height: 50px;
@@ -255,7 +266,7 @@ h1 {
   border: 1px solid #323232;
   border-radius: 0 100px 100px 0;
   background-color: #151515;
-  
+
   padding: 10px 20px;
   font-size: 1rem;
   outline: none;
@@ -416,7 +427,9 @@ h1 {
 }
 
 @keyframes bounce {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
