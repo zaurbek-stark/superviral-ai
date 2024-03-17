@@ -6,6 +6,14 @@ This project is built using Nextjs. It utilizes the Claude 3 Opus model for text
 
 <img src="superviral-demo.gif" alt="app demo" width=600>
 
+## Learn AI development
+
+This project is built by Zaurbek Stark (The Codebender).
+- [YouTube](https://www.youtube.com/@thecodebendermaster)
+- [𝕏/Twitter](https://twitter.com/ZaurbekStark)
+
+This was built as part of a challenge in the **Codebender AI Bootcamp**. Learn how to build projects like these here: https://lastcodebender.com/bootcamp
+
 ## Getting Started
 
 First, duplicate the `.env` file into a new file named `.env.local`. Update the value of your OpenAI API key there.
