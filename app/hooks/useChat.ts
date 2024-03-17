@@ -72,8 +72,10 @@ export const useChat = () => {
 
   const generateTitle = async () => {
     const prompt = getVideoPrompt(videoData);
-    const { text } = await getVideoText([{ role: 'user', content: prompt }]);
-    setTextResponse(text);
+    await getVideoText({
+      messages: [{ role: 'user', content: prompt }],
+      setMessage: (msg) => setTextResponse(msg),
+    });
     addMessage('assistant', 'Which title is your favorite?');
     setChatState({ stage: 'validateTitle' });
   };
@@ -91,9 +93,13 @@ export const useChat = () => {
       { role: 'assistant', content: `The titles are: ${textResponse}.\n\nWhich title is your favorite?` },
       { role: 'user', content: input },
     ];
-    const { text: thumbnailPrompt } = await getVideoText(chatForThumbnail);
-    setThumbnailPrompt(thumbnailPrompt);
-    setTextResponse(thumbnailPrompt);
+    await getVideoText({
+      messages: chatForThumbnail,
+      setMessage: (msg) => {
+        setThumbnailPrompt(msg);
+        setTextResponse(msg);
+      }
+    });
     addMessage('assistant', 'Good choice! Anything special you want on the thumbnail?');
     setChatState({ stage: 'validateThumbnail' });
   };
@@ -101,7 +107,7 @@ export const useChat = () => {
   const validateThumbnail = async (input: string) => {
     if (input.toLowerCase().startsWith('yes')) {
       setChatState({ stage: 'validateScript' });
-      validateScript();
+      await validateScript();
     } else {
       // Generate thumbnail based on the prompt and user input for modifications
       const imageUrl = await getThumbnail(`Original prompt: ${thumbnailPrompt}\n---\nMake the following changes: ${input}`);
@@ -124,9 +130,13 @@ export const useChat = () => {
         ...messages,
         { role: 'user', content: input ?? 'Great! Can you now generate the script?' },
       ];
-      const { text: script } = await getVideoText(chatForScript);
-      const thumbnailImgs = textResponse.match(/<img src=".*?"\s*\/?>/g);
-      setTextResponse(`${thumbnailImgs?.[0]} ${script}`);
+      await getVideoText({
+        messages: chatForScript,
+        setMessage: (msg) => {
+          const thumbnailImgs = textResponse.match(/<img src=".*?"\s*\/?>/g);
+          setTextResponse(`${thumbnailImgs?.[0]} ${msg}`);
+        }
+      });
       addMessage('assistant', 'Is this script ok?');
     }
   };

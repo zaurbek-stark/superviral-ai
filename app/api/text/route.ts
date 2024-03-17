@@ -1,5 +1,5 @@
-import { NextResponse } from 'next/server';
 import Anthropic from '@anthropic-ai/sdk';
+import { AnthropicStream, StreamingTextResponse } from 'ai';
 
 const anthropic = new Anthropic({
   apiKey: process.env["ANTHROPIC_API_KEY"]
@@ -9,8 +9,7 @@ export const runtime = 'edge';
 
 export async function POST(req: Request, res: Response) {
   const body = await req.text();
-  const { promptMessages } = JSON.parse(body);
-  
+  const { messages } = JSON.parse(body);
 
   const response = await anthropic.messages.create({
     model: "claude-3-opus-20240229",
@@ -48,10 +47,13 @@ OUTPUT FORMAT:
       </ul>
     </p>
 `,
-    messages: [...promptMessages],
+    messages: [...messages],
+    stream: true
   });
 
-  let text = response?.content?.[response.content.length-1]?.text ?? '';
-
-  return NextResponse.json({ text });
+  // Convert the response into a friendly text-stream
+  const stream = AnthropicStream(response);
+ 
+  // Respond with the stream
+  return new StreamingTextResponse(stream);
 }
