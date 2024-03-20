@@ -48,7 +48,7 @@ const ChatForm: React.FC<ChatFormProps> = ({ onSubmit, onInputChange, inputValue
     />
     <button
       type="submit"
-      disabled={isLoading}
+      disabled={isLoading || !inputValue}
       className="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center space-x-2 w-[80px]"
     />
   </form>
@@ -63,6 +63,7 @@ const Chat: React.FC = () => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!input) return;
     handleSubmit(input);
     setInput('');
   };

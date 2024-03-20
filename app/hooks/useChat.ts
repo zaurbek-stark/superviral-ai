@@ -146,7 +146,7 @@ export const useChat = () => {
     try {
       await processChatInput(input);
     } catch (error) {
-      setError('An error occurred while processing your request.');
+      setError('Sorry something went wrong, it might be that too many people used it, and I have run out of AI credits😬');
     } finally {
       setLoading(false);
     }
